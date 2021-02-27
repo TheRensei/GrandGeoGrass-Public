@@ -147,7 +147,7 @@ namespace GrandGeoGrass
             {
                 colors[i] = new Color(
                     Random.Range(grassHeightRange.x, grassHeightRange.y), //Height
-                    1, //This is used by the wind
+                    1, //This is used by the wind, but could be saved and used before the wind is applied
                     Random.Range(grassWidthRange.x, grassWidthRange.y)); //Width;
             }
 

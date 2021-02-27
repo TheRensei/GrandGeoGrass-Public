@@ -67,7 +67,6 @@ namespace GrandGeoGrass
             var headerStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
             headerStyle.fontStyle = FontStyle.Bold;
 
-            //DrawBackground();
             //Color mainColor = new Color(0, 1f, 0, 0.5f);
             Color mainColor = Color.green;
 
@@ -234,35 +233,6 @@ namespace GrandGeoGrass
                 Matrix4x4 rotationMatrix = Matrix4x4.TRS(painter.transform.position, painter.transform.rotation, painter.transform.lossyScale);
                 Handles.matrix = rotationMatrix;
                 Handles.DrawWireCube(Vector3.zero, new Vector3(area.vector2Value.x, 1, area.vector2Value.y));
-            }
-        }
-
-        void DrawBackground()
-        {
-            Rect logoPos = EditorGUILayout.GetControlRect();
-            if (useDensityMap.boolValue == true)
-            {
-                logoPos.height = 453;
-            }
-            else
-            {
-                logoPos.height = 340;
-            }
-
-            if(!inScene)
-            {
-                logoPos.height -= 73;
-            }
-            logoPos.x -= 16;
-            logoPos.width += 18;
-            
-            if (painter.logo == null)
-            {
-                painter.logo = EditorGUIUtility.Load("Assets/Plugins/GrandGeoGrass/Editor/Logo/GGG_GRADIENT.png") as Texture2D;
-            }
-            if (painter.logo != null)
-            {
-                GUI.DrawTexture(logoPos, painter.logo, ScaleMode.ScaleAndCrop, true, 0, Color.white * 0.9f, 0, 0);
             }
         }
     }
