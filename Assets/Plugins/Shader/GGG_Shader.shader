@@ -137,7 +137,6 @@
 				o.normal = v.normal;
 				o.color = v.color;
 
-				UNITY_TRANSFER_FOG(o, o.vertex);
 				return o;
 			}
 
@@ -147,6 +146,8 @@
 				o.vertex = UnityObjectToClipPos(vertex);
 				o.uv = TRANSFORM_TEX(uv, _MainTex);
 				o.worldPosition = mul(unity_ObjectToWorld, float4(vertex,1));
+
+				UNITY_TRANSFER_FOG(o, o.vertex);
 #if UNITY_PASS_FORWARDBASE
 
 				o.normal = normal;
